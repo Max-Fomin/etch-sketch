@@ -1,11 +1,22 @@
+let numRowsCols = 8;
 const container = document.querySelector(".container");
+const btn = document.querySelector("button");
 
-function makeGrid(rows, cols) {
-    for (n = 0; n < (rows * cols); n++) {
-        let cell = document.createElement("div");
-        cell.innerText = (n + 1);
-        container.appendChild(cell).className = "grid-item";
+function makeGrid(numRowsCols) {
+    container.innerHTML = "";
+    container.style.gridTemplateColumns = `repeat(${numRowsCols}, 1fr)`;
+    for (let n = 0; n < numRowsCols; n++) {
+        let row = container.appendChild(document.createElement("div"));
+        for (let i = 0; i < numRowsCols; i++) {
+            let cell = document.createElement("div");
+            row.appendChild(cell).className = "grid-item";
+        }
     }
 }
 
-makeGrid(16, 16);
+btn.addEventListener ("click", () => {
+    numRowsCols = prompt("Enter the number of rows and columns");
+    makeGrid(numRowsCols);
+})
+
+makeGrid(numRowsCols);

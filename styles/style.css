@@ -1,3 +1,19 @@
+button {
+    margin: 5px;
+}
+
+.container {
+    display: grid;
+    max-width: 960px;
+    max-height: 960px;
+}
+
 .grid-item {
-    border: 2px solid black;
+    min-height: 10px;
+    min-width: 10px;
+    border: 1px solid black;
+}
+
+.grid-item:hover {
+    background-color: grey;
 }
